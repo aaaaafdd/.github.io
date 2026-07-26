@@ -536,22 +536,12 @@ ul { list-style: none; }
 
     <div class="grid-2">
       <div class="card">
-        <h3>在投论文</h3>
-        <div style="margin-top:10px;">
-          <div style="padding:8px 0;border-bottom:1px solid #f0ede8;">
-            <strong>SMoA: Spectrum Modulation Adapter for Parameter-Efficient Fine-Tuning</strong>
-            <p style="font-size:13px;color:#7a8a9e;">AAAI Conference on Artificial Intelligence（CCF-A）— 学生二作，在投</p>
-            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">提出 Structured Modulation Adapter（SMoA），通过 SVD 重排序 + 分块 Hadamard 调制，在低秩适配框架中引入高秩结构化调制机制，解决传统 LoRA 方法在低秩条件下表达能力受限的问题。核心洞察是预训练权重的尾部方向包含有用信息，通过频谱重排让低秩适配也能利用这些信息。</p>
-          </div>
-          <div style="padding:8px 0;">
-            <strong>NGO-BC: Neural-Guided Online Budget Control for Multi-Agent Systems</strong>
-            <p style="font-size:13px;color:#7a8a9e;">NeurIPS 2026（CCF-A）— 共同作者，在投</p>
-            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">将多智能体系统的预算控制形式化为在线优化问题，设计 GAT + MPC + Product-KKT + MWU 四层架构，在紧预算下准确率领先基线 10-20pp，实现零预算违规，MWU 调度器具有 O(√K) 遗憾保证。</p>
-          </div>
-        </div>
+        <h3>SMoA: Spectrum Modulation Adapter for PEFT</h3>
+        <p style="font-size:13px;color:#7a8a9e;">AAAI Conference on Artificial Intelligence（CCF-A）— 学生二作，在投</p>
+        <p style="font-size:14px;color:#5a6c7d;margin-top:8px;">提出 Structured Modulation Adapter（SMoA），通过 SVD 重排序 + 分块 Hadamard 调制，在低秩适配框架中引入高秩结构化调制机制，解决传统 LoRA 方法在低秩条件下表达能力受限的问题。核心洞察是预训练权重的尾部方向包含有用信息，通过频谱重排让低秩适配也能利用这些信息。</p>
         <div class="fig-card">
           <img src="images/img_001.jpg" alt="SMoA与LoRA对比">
-          <figcaption>Structured Modulation Adapter（SMoA）与 LoRA 方法结构对比示意图</figcaption>
+          <figcaption>SMoA 与 LoRA 方法结构对比示意图</figcaption>
         </div>
         <div class="fig-card">
           <img src="images/img_002.jpg" alt="性能对比">
@@ -560,7 +550,9 @@ ul { list-style: none; }
       </div>
 
       <div class="card">
-        <h3>论文配图</h3>
+        <h3>NGO-BC: Neural-Guided Online Budget Control for MAS</h3>
+        <p style="font-size:13px;color:#7a8a9e;">NeurIPS 2026（CCF-A）— 共同作者，在投</p>
+        <p style="font-size:14px;color:#5a6c7d;margin-top:8px;">将多智能体系统的预算控制形式化为在线优化问题，设计 GAT + MPC + Product-KKT + MWU 四层架构，在紧预算下准确率领先基线 10-20pp，实现零预算违规，MWU 调度器具有 O(√K) 遗憾保证。</p>
         <div class="fig-card">
           <img src="images/ngo_bc_figure.png" alt="NGO-BC架构图">
           <figcaption>NGO-BC 双层架构：轮内 MPC + 轮间 MWU 全局调度</figcaption>
@@ -578,46 +570,50 @@ ul { list-style: none; }
       <h2>专利与软著</h2>
     </div>
     <div class="grid-2">
-      <div class="card">
+    <div class="card" style="margin-bottom:18px;">
         <h3>发明专利（学生一作 · 4项）</h3>
-        <ul style="margin-top:10px;">
+        <ul style="margin-top:10px;columns:2;">
           <li><strong>基于迭代优化机制的相位逐步逼近恢复方法</strong></li>
           <li><strong>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</strong></li>
           <li><strong>基于远场衍射建模的微观结构远距离稳定重建方法</strong></li>
           <li><strong>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统</strong></li>
         </ul>
-        <div class="fig-card">
-          <img src="images/patent_iterative.png" alt="相位逐步逼近恢复">
-          <figcaption>基于迭代优化机制的相位逐步逼近恢复方法</figcaption>
-        </div>
-        <div class="fig-card">
-          <img src="images/patent_fourier.png" alt="傅里叶反变换相位恢复">
-          <figcaption>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</figcaption>
-        </div>
-        <div class="fig-card">
-          <img src="images/patent_diffraction.png" alt="远场衍射重建">
-          <figcaption>基于远场衍射建模的微观结构远距离稳定重建方法</figcaption>
-        </div>
-        <div class="fig-card">
-          <img src="images/patent_fake_news.png" alt="虚假新闻鉴识">
-          <figcaption>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统总体流程图</figcaption>
+        <div class="grid-2" style="margin-top:14px;">
+          <div class="fig-card">
+            <img src="images/patent_iterative.png" alt="相位逐步逼近恢复">
+            <figcaption>基于迭代优化机制的相位逐步逼近恢复方法</figcaption>
+          </div>
+          <div class="fig-card">
+            <img src="images/patent_fourier.png" alt="傅里叶反变换相位恢复">
+            <figcaption>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</figcaption>
+          </div>
+          <div class="fig-card">
+            <img src="images/patent_diffraction.png" alt="远场衍射重建">
+            <figcaption>基于远场衍射建模的微观结构远距离稳定重建方法</figcaption>
+          </div>
+          <div class="fig-card">
+            <img src="images/patent_fake_news.png" alt="虚假新闻鉴识">
+            <figcaption>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统</figcaption>
+          </div>
         </div>
       </div>
+
       <div class="card">
         <h3>软件著作权</h3>
         <ul style="margin-top:10px;">
           <li><strong>基于无人机多角度成像的海冰分类软件 V1.0</strong>（一作）</li>
         </ul>
-        <div class="fig-card">
-          <img src="images/soft_seaice_v1.png" alt="海冰分类软件V1.0">
-          <figcaption>基于无人机多角度成像的海冰分类软件 V1.0</figcaption>
-        </div>
-        <div class="fig-card">
-          <img src="images/soft_seaice_v2.png" alt="海冰分类软件V1.0(1)">
-          <figcaption>基于无人机多角度成像的海冰分类软件 V1.0（续）</figcaption>
+        <div class="grid-2" style="margin-top:14px;">
+          <div class="fig-card">
+            <img src="images/soft_seaice_v1.png" alt="海冰分类软件V1.0">
+            <figcaption>基于无人机多角度成像的海冰分类软件 V1.0</figcaption>
+          </div>
+          <div class="fig-card">
+            <img src="images/soft_seaice_v2.png" alt="海冰分类软件V1.0">
+            <figcaption>基于无人机多角度成像的海冰分类软件 V1.0</figcaption>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -639,8 +635,8 @@ ul { list-style: none; }
           <li>中国（国际）传感器创新创业大赛华北赛区 —— 一等奖</li>
           <li>第十四届光电设计竞赛 —— 全国一等奖</li>
           <li>第十四届光电设计竞赛华北赛区 —— 一等奖</li>
+          <li>2026睿抗机器人开发者大赛全国总决赛 —— 全国一等奖</li>
           <li>2025年全球校园人工智能算法精英大赛 —— 全国三等奖</li>
-          <li>2026睿抗机器人开发者大赛全国总决赛 —— 应用场景分析赛题</li>
         </ul>
       </div>
 
@@ -756,7 +752,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>收官冲刺 · 预推免备战</h4>
-          <p>获第十四届光电设计竞赛全国一等奖、2026睿抗机器人开发者大赛全国总决赛应用场景分析赛题奖项、全球校园人工智能算法精英大赛全国三等奖。软著"基于无人机多角度成像的海冰分类软件V1.0"获批。完成预推免材料整理与个人学术主页搭建。截至目前，累计获得国家级奖项6项（全国一等奖5项）、省部级奖项9项、发明专利4项、软著1项、在投CCF-A论文2篇。</p>
+          <p>获第十四届光电设计竞赛全国一等奖、2026睿抗机器人开发者大赛全国总决赛一等奖、2025年全球校园人工智能算法精英大赛全国三等奖。软著"基于无人机多角度成像的海冰分类软件V1.0"获批。截至目前，累计获得国家级奖项6项（全国一等奖5项）、省部级奖项9项、发明专利4项、软著1项、在投CCF-A论文2篇。</p>
         </div>
       </div>
     </div>
@@ -894,8 +890,8 @@ ul { list-style: none; }
       <article class="cert-card" data-cat="national">
         <div class="cert-img-wrap"><img src="images/cert_raicom_national.png" alt="2026睿抗机器人开发者大赛全国总决赛"></div>
         <div class="cert-body">
-          <h4>2026睿抗机器人开发者大赛全国总决赛</h4>
-          <p>2026睿抗机器人开发者大赛全国总决赛第一阶段应用场景分析赛题</p>
+          <h4>2026睿抗机器人开发者大赛全国总决赛一等奖</h4>
+          <p>2026睿抗机器人开发者大赛全国总决赛</p>
         </div>
       </article>
 
