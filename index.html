@@ -368,7 +368,7 @@ ul { list-style: none; }
         东北大学（秦皇岛分校）<span>985</span> 计算机科学与技术 <span>双一流</span>
       </div>
       <p class="hero-desc">
-        2023级本科生，研究方向为大模型压缩与高效推理、计算机视觉与智能感知。以核心成员身份参与多个科研和竞赛项目，获得国家级一等奖2项、国际级竞赛奖项2项，申请发明专利4项，在投论文2篇。
+        2023级本科生，研究方向为大模型压缩、计算机视觉、智能感知。已获得国家级奖项6项（其中全国一等奖5项）、省部级奖项9项，以学生一作申请发明专利4项，在投论文2篇（AAAI学生二作、NeurIPS共同作者）。
       </p>
       <div class="hero-tags">
         <span class="hero-tag">大模型压缩</span>
@@ -386,20 +386,20 @@ ul { list-style: none; }
 <div class="wrap">
   <div class="stats-row">
     <div class="stat-box">
-      <div class="stat-num">2 项</div>
-      <div class="stat-label">国家级一等奖</div>
+      <div class="stat-num">5 项</div>
+      <div class="stat-label">全国一等奖</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">6 项</div>
+      <div class="stat-label">国家级奖项</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">9 项</div>
+      <div class="stat-label">省部级奖项</div>
     </div>
     <div class="stat-box">
       <div class="stat-num">4 项</div>
       <div class="stat-label">发明专利（学生一作）</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">2 篇</div>
-      <div class="stat-label">在投论文（AAAI/NIPS）</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">省级及以上竞赛获奖</div>
     </div>
   </div>
 </div>
@@ -447,12 +447,18 @@ ul { list-style: none; }
       <p class="section-subtitle">涵盖大模型压缩、材料识别、红外感知、健康预测、虚假信息检测等方向</p>
     </div>
 
-    <!-- Project 1: LLM pruning — NEW -->
+    <!-- Project 1: LLM pruning -->
     <div class="card" style="margin-bottom:18px;">
       <span class="card-label blue">科研项目</span>
-      <h3>基于结构化剪枝的大语言模型压缩与性能优化研究</h3>
-      <p>围绕大语言模型推理效率问题，探索结构化剪枝策略以减少模型参数与计算开销，同时通过知识蒸馏与微调恢复剪枝后的性能损失，在保持模型能力的前提下实现显著压缩比。</p>
-      <p style="margin-top:8px;"><em>—— 项目详情与配图待补充，请提供项目计划书或技术文档。</em></p>
+      <h3>基于结构化剪枝的大语言模型压缩与性能优化研究（GradPruner）</h3>
+      <p>围绕大模型部署的推理延迟与显存瓶颈，复现并改进了 GradPruner 梯度引导层剪枝方法：利用 LoRA 微调前 40 步的梯度信息计算每层 IGIA 重要性分数，剪除分数最低的约 40% 层数，并通过符号合并将被剪层的知识抢救到保留层中。在 Llama3.1-8B 上的 8 个下游任务中，参数减少 40% 的同时精度仅下降不到 1%，推理速度提升约 39%。</p>
+      <h4>主要工作</h4>
+      <ul>
+        <li>修改 HuggingFace Trainer 训练循环，在梯度计算后、优化器更新前插入梯度保存逻辑</li>
+        <li>实现 IGIA 层重要性打分：用 LoRA_A 和 LoRA_B 的梯度矩阵乘积范数作为每层重要性度量，累加 40 步得到时间平均分数</li>
+        <li>实现符号合并剪枝：只在前 20% 重要参数且与被剪层同号时才合并，避免参数干扰</li>
+        <li>提出两个改进方向：Soft-GradPruner（Fisher 信息矩阵加权融合）和 Dynamic-GradPruner（结合 MoD 的动态路由）</li>
+      </ul>
     </div>
 
     <div class="grid-2">
@@ -484,12 +490,19 @@ ul { list-style: none; }
         <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖</p>
       </div>
 
-      <!-- Project 4 -->
+      <!-- NGO-BC Budget Control -->
       <div class="card">
-        <span class="card-label purple">科研建模</span>
-        <h3>基于 SW-LSTM、BN 与 RL 的肥胖动态预测与干预策略研究</h3>
-        <p>围绕肥胖风险预测与干预问题，构建结合滑动窗口LSTM（SW-LSTM）、批归一化（BN）与强化学习（RL）的综合建模框架，从时间序列分析角度动态刻画肥胖发展趋势并优化干预策略。</p>
-        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：全国大学生统计建模大赛河北赛区本科组二等奖</p>
+        <span class="card-label blue">在投论文项目（NeurIPS 2026）</span>
+        <h3>NGO-BC：神经引导的大模型多智能体在线预算控制</h3>
+        <p>围绕大模型多智能体系统（MAS）的 API 成本爆炸问题，设计了一个即插即用的预算控制器，仅通过控制每个 Agent 的 max_tokens 参数实现非侵入式成本优化，完全不改变系统内部逻辑。</p>
+        <h4>主要工作</h4>
+        <ul>
+          <li>首次将 MAS 预算控制形式化为"内源性输入成本传播"下的在线优化问题</li>
+          <li>设计四层架构：质量函数离线校准 → GAT 图神经网络预测下游开销 → MPC 滚动规划做动态预留 → Product-KKT 数学优化做精确分配</li>
+          <li>在轮间层用 MWU（乘性权重更新）维护全局影子价格 μ 实现跨轮调度，证明了 O(√K) 遗憾上界</li>
+          <li>在 MATH/MMLU-Pro/GPQA 三个基准 × 四种协作框架 × 四个预算水平下验证，紧预算场景准确率优势 10-20pp，实现零预算违规</li>
+        </ul>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">投稿：NeurIPS 2026（CCF-A）</p>
       </div>
 
       <!-- Project 5 -->
@@ -522,18 +535,18 @@ ul { list-style: none; }
         <h3>在投论文</h3>
         <div style="margin-top:10px;">
           <div style="padding:8px 0;border-bottom:1px solid #f0ede8;">
-            <strong>High-Rank Structured Modulation for Parameter-Efficient Fine-Tuning</strong>
+            <strong>SMoA: Spectrum Modulation Adapter for Parameter-Efficient Fine-Tuning</strong>
             <p style="font-size:13px;color:#7a8a9e;">AAAI Conference on Artificial Intelligence（CCF-A）— 学生二作，在投</p>
-            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">提出 Structured Modulation Adapter（SMoA）方法，在低秩适配框架中引入高秩结构化调制机制，解决传统 LoRA 方法在低秩条件下表达能力受限的问题。</p>
+            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">提出 Structured Modulation Adapter（SMoA），通过 SVD 重排序 + 分块 Hadamard 调制，在低秩适配框架中引入高秩结构化调制机制，解决传统 LoRA 方法在低秩条件下表达能力受限的问题。核心洞察是预训练权重的尾部方向包含有用信息，通过频谱重排让低秩适配也能利用这些信息。</p>
           </div>
           <div style="padding:8px 0;">
-            <strong>论文2（标题待补充）</strong>
-            <p style="font-size:13px;color:#7a8a9e;">NeurIPS（CCF-A）— 学生四作，在投</p>
-            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">论文详情待补充。</p>
+            <strong>NGO-BC: Neural-Guided Online Budget Control for Multi-Agent Systems</strong>
+            <p style="font-size:13px;color:#7a8a9e;">NeurIPS 2026（CCF-A）— 共同作者，在投</p>
+            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">将多智能体系统的预算控制形式化为在线优化问题，设计 GAT + MPC + Product-KKT + MWU 四层架构，在紧预算下准确率领先基线 10-20pp，实现零预算违规，MWU 调度器具有 O(√K) 遗憾保证。</p>
           </div>
         </div>
         <div class="fig-card">
-          <img src="images/img_001.jpg" alt="HiRA与LoRA方法对比">
+          <img src="images/img_001.jpg" alt="SMoA与LoRA对比">
           <figcaption>Structured Modulation Adapter（SMoA）与 LoRA 方法结构对比示意图</figcaption>
         </div>
         <div class="fig-card">
@@ -543,12 +556,11 @@ ul { list-style: none; }
       </div>
 
       <div class="card">
-        <h3>其他研究</h3>
-        <div style="padding:8px 0;border-bottom:1px solid #f0ede8;">
+        <h3>竞赛论文</h3>
+        <div style="padding:8px 0;">
           <strong>基于 SW-LSTM、BN 与 RL 的肥胖动态预测与干预策略研究</strong>
-          <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">围绕肥胖风险预测与干预问题开展统计建模研究，结合时间序列预测与强化学习优化干预策略。</p>
+          <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">全国大学生统计建模大赛河北赛区本科组二等奖的参赛论文，结合滑动窗口 LSTM、批归一化与强化学习构建肥胖预测模型。</p>
         </div>
-        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">—— 此部分内容随论文进展持续更新，待投稿后可提供详细摘要与图表。</p>
       </div>
     </div>
   </div>
@@ -570,17 +582,35 @@ ul { list-style: none; }
           <li><strong>基于远场衍射建模的微观结构远距离稳定重建方法</strong></li>
           <li><strong>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统</strong></li>
         </ul>
-        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">—— 如有新增专利，请提供完整名称以补入列表。</p>
+        <div class="fig-card">
+          <img src="images/patent_iterative.png" alt="相位逐步逼近恢复">
+          <figcaption>基于迭代优化机制的相位逐步逼近恢复方法</figcaption>
+        </div>
+        <div class="fig-card">
+          <img src="images/patent_fourier.png" alt="傅里叶反变换相位恢复">
+          <figcaption>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</figcaption>
+        </div>
+        <div class="fig-card">
+          <img src="images/patent_diffraction.png" alt="远场衍射重建">
+          <figcaption>基于远场衍射建模的微观结构远距离稳定重建方法</figcaption>
+        </div>
+        <div class="fig-card">
+          <img src="images/patent_fake_news.png" alt="虚假新闻鉴识">
+          <figcaption>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统总体流程图</figcaption>
+        </div>
       </div>
       <div class="card">
         <h3>软件著作权</h3>
         <ul style="margin-top:10px;">
           <li><strong>基于无人机多角度成像的海冰分类软件 V1.0</strong>（一作）</li>
         </ul>
-        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">另有多篇参与软著，持续整理中。</p>
         <div class="fig-card">
-          <img src="images/img_003.jpg" alt="专利流程图">
-          <figcaption>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统总体流程图</figcaption>
+          <img src="images/soft_seaice_v1.png" alt="海冰分类软件V1.0">
+          <figcaption>基于无人机多角度成像的海冰分类软件 V1.0</figcaption>
+        </div>
+        <div class="fig-card">
+          <img src="images/soft_seaice_v2.png" alt="海冰分类软件V1.0(1)">
+          <figcaption>基于无人机多角度成像的海冰分类软件 V1.0（续）</figcaption>
         </div>
       </div>
     </div>
@@ -832,13 +862,11 @@ ul { list-style: none; }
         </div>
       </article>
 
-      <article class="cert-card" data-cat="provincial">
-        <div class="cert-img-wrap" style="background:#f0faf4;display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:13px;color:#276749;">🤖 2026睿抗机器人开发者大赛全国总决赛</span>
-        </div>
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/cert_raicom_national.png" alt="2026睿抗机器人开发者大赛全国总决赛"></div>
         <div class="cert-body">
           <h4>2026睿抗机器人开发者大赛全国总决赛</h4>
-          <p>2026睿抗机器人开发者大赛全国总决赛第一阶段</p>
+          <p>2026睿抗机器人开发者大赛全国总决赛第一阶段应用场景分析赛题</p>
         </div>
       </article>
 
