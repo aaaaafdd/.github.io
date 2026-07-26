@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张善茹 | 个人学术主页</title>
+<meta name="description" content="张善茹，东北大学（秦皇岛分校）计算机科学与技术专业2023级本科生。个人学术主页。">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.75;
+  color: #2d3748;
+  background: #f9f8f6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* ===== Nav ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e8e4dd;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.nav-name {
+  font-weight: 700; font-size: 17px;
+  color: #1a365d; letter-spacing: .3px;
+}
+.nav-links {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.nav-links a {
+  padding: 6px 14px; border-radius: 6px;
+  font-size: 14px; font-weight: 600;
+  color: #5a6c7d;
+  transition: all .18s;
+}
+.nav-links a:hover {
+  background: #eef2f7; color: #1a56db;
+}
+
+/* ===== Container ===== */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 48px 20px 36px;
+}
+.hero-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr; gap: 32px;
+  align-items: start;
+}
+.hero-portrait {
+  width: 240px; height: 300px;
+  object-fit: cover; border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.10);
+  background: #e8e4dd;
+}
+.hero-text { padding-top: 4px; }
+.hero-badge {
+  display: inline-block; padding: 4px 12px;
+  border-radius: 4px; background: #edf2f7;
+  color: #4a6fa5; font-size: 13px; font-weight: 700;
+  letter-spacing: .6px; margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 48px; font-weight: 800; letter-spacing: 1px;
+  color: #1a202c; line-height: 1.15; margin-bottom: 8px;
+}
+.hero-school {
+  font-size: 18px; color: #4a6fa5; font-weight: 600;
+  margin-bottom: 14px;
+}
+.hero-school span {
+  display: inline-block; margin-left: 8px; padding: 2px 7px;
+  border-radius: 3px; background: #1a365d; color: #fff;
+  font-size: 11px; font-weight: 700; vertical-align: middle;
+  letter-spacing: .4px;
+}
+.hero-desc {
+  font-size: 15px; color: #5a6c7d;
+  max-width: 620px; line-height: 1.85;
+  margin-bottom: 18px;
+}
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.hero-tag {
+  padding: 5px 14px; border-radius: 20px;
+  background: #fff; border: 1px solid #dce3eb;
+  font-size: 13px; font-weight: 600; color: #4a5568;
+}
+
+/* ===== Stats Row ===== */
+.stats-row {
+  max-width: 1100px; margin: 0 auto 20px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+.stat-box {
+  background: #fff; border: 1px solid #e8e4dd;
+  border-radius: 10px; padding: 18px 16px;
+  text-align: center;
+}
+.stat-num {
+  font-size: 28px; font-weight: 800; color: #1a365d;
+  line-height: 1.1;
+}
+.stat-label { font-size: 13px; color: #7a8a9e; margin-top: 4px; }
+
+/* ===== Section ===== */
+.section {
+  padding: 36px 20px;
+}
+.section:nth-child(even) { background: #fff; }
+.section-head { margin-bottom: 24px; }
+.section-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
+  color: #4a6fa5; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 28px; font-weight: 800; color: #1a202c;
+  margin-bottom: 6px;
+}
+.section-subtitle {
+  font-size: 15px; color: #7a8a9e;
+}
+
+/* ===== Education ===== */
+.edu-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+}
+.edu-card {
+  background: #fff; border: 1px solid #e8e4dd;
+  border-radius: 10px; padding: 22px;
+}
+.edu-card h3 {
+  font-size: 18px; font-weight: 700; color: #1a202c;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 2px solid #edf2f7;
+}
+.edu-info-row {
+  display: flex; justify-content: space-between;
+  padding: 6px 0; font-size: 14px;
+  border-bottom: 1px solid #f7f5f2;
+}
+.edu-info-row .l { color: #7a8a9e; }
+.edu-info-row .r { font-weight: 600; color: #2d3748; }
+.course-table { width: 100%; border-collapse: collapse; }
+.course-table td {
+  padding: 5px 8px; font-size: 14px; border-bottom: 1px solid #f0ede8;
+}
+.course-table td:first-child { color: #2d3748; }
+.course-table td:last-child { text-align: right; font-weight: 700; color: #1a56db; width: 50px; }
+
+/* ===== Cards Grid ===== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.card {
+  background: #fff; border: 1px solid #e8e4dd;
+  border-radius: 10px; padding: 22px;
+  transition: box-shadow .2s;
+}
+.card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+.card-label {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 12px; font-weight: 700; letter-spacing: .4px;
+  margin-bottom: 10px;
+}
+.card-label.gold { background: #fef9e7; color: #975a16; }
+.card-label.blue { background: #eef2fb; color: #2c5282; }
+.card-label.green { background: #f0faf4; color: #276749; }
+.card-label.purple { background: #f5f0fd; color: #6b46c1; }
+.card h3 { font-size: 18px; font-weight: 700; color: #1a202c; margin-bottom: 6px; }
+.card h4 { font-size: 15px; font-weight: 600; color: #4a5568; margin: 12px 0 6px; }
+.card p, .card li { font-size: 14px; color: #5a6c7d; line-height: 1.75; margin-bottom: 4px; }
+.card ul { padding-left: 18px; list-style: disc; }
+.card ul li { margin-bottom: 3px; }
+
+/* ===== Figure ===== */
+.fig-card {
+  border: 1px solid #e8e4dd; border-radius: 8px;
+  overflow: hidden; background: #fcfbf9;
+  margin-top: 14px;
+}
+.fig-card img { width: 100%; height: auto; max-height: 380px; object-fit: contain; background: #fff; }
+.fig-card figcaption {
+  padding: 10px 14px; font-size: 13px; color: #7a8a9e;
+  border-top: 1px solid #f0ede8; text-align: center;
+}
+
+/* ===== Timeline ===== */
+.timeline { position: relative; }
+.timeline::before {
+  content: ""; position: absolute; left: 90px; top: 0; bottom: 0;
+  width: 2px; background: #e8e4dd;
+}
+.timeline-item {
+  display: flex; gap: 24px; padding: 16px 0; position: relative;
+}
+.timeline-year {
+  width: 90px; flex-shrink: 0;
+  font-size: 15px; font-weight: 800; color: #1a56db;
+  text-align: right; padding-right: 6px;
+}
+.timeline-dot {
+  position: absolute; left: 84px; top: 22px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #1a56db; border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #1a56db;
+}
+.timeline-body { padding-left: 8px; }
+.timeline-body h4 { font-size: 16px; font-weight: 700; color: #2d3748; margin-bottom: 4px; }
+.timeline-body p { font-size: 14px; color: #5a6c7d; line-height: 1.7; }
+
+/* ===== Cert Wall ===== */
+.cert-filters {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+}
+.cert-filter-btn {
+  padding: 6px 16px; border-radius: 20px;
+  border: 1px solid #dce3eb; background: #fff;
+  font-size: 13px; font-weight: 600; color: #5a6c7d;
+  cursor: pointer; transition: all .15s;
+  font-family: inherit;
+}
+.cert-filter-btn:hover { border-color: #4a6fa5; color: #4a6fa5; }
+.cert-filter-btn.active {
+  background: #1a365d; color: #fff; border-color: #1a365d;
+}
+.cert-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+.cert-card {
+  background: #fff; border: 1px solid #e8e4dd;
+  border-radius: 10px; overflow: hidden;
+  transition: box-shadow .2s; cursor: pointer;
+}
+.cert-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.08); }
+.cert-img-wrap {
+  width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  background: #f5f4f1; position: relative;
+}
+.cert-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; transition: transform .3s;
+}
+.cert-card:hover .cert-img-wrap img { transform: scale(1.04); }
+.cert-body { padding: 12px 14px; }
+.cert-body h4 { font-size: 14px; font-weight: 700; color: #2d3748; margin-bottom: 4px; line-height: 1.35; }
+.cert-body p { font-size: 12px; color: #7a8a9e; line-height: 1.45; }
+.cert-body .cert-date {
+  display: inline-block; margin-top: 4px; padding: 2px 8px;
+  border-radius: 3px; background: #edf2f7;
+  font-size: 11px; font-weight: 700; color: #4a6fa5;
+}
+
+/* ===== Modal ===== */
+.modal {
+  position: fixed; inset: 0; display: none; place-items: center;
+  background: rgba(15,20,35,.88); z-index: 200; padding: 20px;
+}
+.modal.open { display: grid; }
+.modal-box {
+  max-width: min(1000px, 94vw); max-height: 90vh;
+  background: #fff; border-radius: 12px; padding: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.30);
+  overflow: auto;
+}
+.modal-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 10px; padding-bottom: 10px;
+  border-bottom: 1px solid #e8e4dd;
+}
+.modal-title { font-weight: 700; font-size: 16px; color: #2d3748; }
+.modal-close {
+  border: 1px solid #dce3eb; background: #f7f5f2;
+  color: #4a5568; border-radius: 6px; padding: 6px 14px;
+  cursor: pointer; font-size: 13px; font-weight: 600;
+  font-family: inherit;
+}
+.modal-close:hover { background: #e8e4dd; }
+.modal img { max-width: 100%; max-height: 74vh; margin: 0 auto; display: block; border-radius: 6px; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center; padding: 32px 20px 40px;
+  background: #fff; border-top: 1px solid #e8e4dd;
+}
+.footer qr-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.footer-qr {
+  width: 140px; height: 140px; border: 1px solid #e8e4dd;
+  border-radius: 8px; padding: 6px; background: #fff;
+}
+.footer-qr img { width: 100%; height: 100%; }
+.footer-note {
+  font-size: 13px; color: #7a8a9e; margin-top: 10px;
+}
+.footer a { color: #1a56db; font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-portrait { width: 180px; height: 230px; margin: 0 auto; }
+  .hero-text { text-align: center; }
+  .hero-tags { justify-content: center; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .grid-2, .edu-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .timeline::before { left: 60px; }
+  .timeline-year { width: 60px; font-size: 13px; }
+  .timeline-dot { left: 54px; }
+}
+@media (max-width: 560px) {
+  .hero h1 { font-size: 36px; }
+  .section h2 { font-size: 24px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .nav-links a { font-size: 12px; padding: 5px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">张善茹</div>
+    <div class="nav-links">
+      <a href="#edu">教育背景</a>
+      <a href="#projects">科研项目</a>
+      <a href="#papers">论文成果</a>
+      <a href="#patents">专利软著</a>
+      <a href="#awards">竞赛奖项</a>
+      <a href="#certs">证书墙</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-grid">
+    <img class="hero-portrait" src="images/img_000.jpg" alt="张善茹">
+    <div class="hero-text">
+      <div class="hero-badge">保研预推免 · 个人学术主页</div>
+      <h1>张善茹</h1>
+      <div class="hero-school">
+        东北大学（秦皇岛分校）<span>985</span> 计算机科学与技术 <span>双一流</span>
+      </div>
+      <p class="hero-desc">
+        2023级本科生，研究方向为大模型压缩与高效推理、计算机视觉与智能感知。以核心成员身份参与多个科研和竞赛项目，获得国家级一等奖2项、国际级竞赛奖项2项，申请发明专利4项，在投论文2篇。
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">大模型压缩</span>
+        <span class="hero-tag">计算机视觉</span>
+        <span class="hero-tag">智能感知</span>
+        <span class="hero-tag">多模态学习</span>
+        <span class="hero-tag">CET-4 / CET-6</span>
+        <span class="hero-tag">普通话二级甲等</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Stats ===== -->
+<div class="wrap">
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">2 项</div>
+      <div class="stat-label">国家级一等奖</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">4 项</div>
+      <div class="stat-label">发明专利（学生一作）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">2 篇</div>
+      <div class="stat-label">在投论文（AAAI/NIPS）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">省级及以上竞赛获奖</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 教育背景 ===== -->
+<section class="section" id="edu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Education</div>
+      <h2>教育背景</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>学校信息</h3>
+        <div class="edu-info-row"><span class="l">学校</span><span class="r">东北大学（秦皇岛分校）<span style="font-size:11px;background:#1a365d;color:#fff;padding:1px 5px;border-radius:2px;margin-left:4px;">985</span></span></div>
+        <div class="edu-info-row"><span class="l">专业</span><span class="r">计算机科学与技术 <span style="font-size:11px;background:#276749;color:#fff;padding:1px 5px;border-radius:2px;margin-left:4px;">双一流</span></span></div>
+        <div class="edu-info-row"><span class="l">入学年份</span><span class="r">2023 年</span></div>
+        <div class="edu-info-row"><span class="l">研究方向</span><span class="r">大模型压缩、计算机视觉、智能感知</span></div>
+        <div class="edu-info-row"><span class="l">英语水平</span><span class="r">CET-4 / CET-6</span></div>
+        <div class="edu-info-row"><span class="l">普通话</span><span class="r">二级甲等</span></div>
+      </div>
+      <div class="edu-card">
+        <h3>核心课程成绩</h3>
+        <table class="course-table">
+          <tr><td>概率论与数理统计</td><td>96</td></tr>
+          <tr><td>电路原理</td><td>96</td></tr>
+          <tr><td>嵌入式系统及应用</td><td>95</td></tr>
+          <tr><td>深度学习</td><td>94</td></tr>
+          <tr><td>数据库原理</td><td>93</td></tr>
+          <tr><td>离散数学</td><td>93</td></tr>
+          <tr><td>数据结构</td><td>91</td></tr>
+          <tr><td>软件工程</td><td>91</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 科研项目 ===== -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Research Projects</div>
+      <h2>科研项目</h2>
+      <p class="section-subtitle">涵盖大模型压缩、材料识别、红外感知、健康预测、虚假信息检测等方向</p>
+    </div>
+
+    <!-- Project 1: LLM pruning — NEW -->
+    <div class="card" style="margin-bottom:18px;">
+      <span class="card-label blue">科研项目</span>
+      <h3>基于结构化剪枝的大语言模型压缩与性能优化研究</h3>
+      <p>围绕大语言模型推理效率问题，探索结构化剪枝策略以减少模型参数与计算开销，同时通过知识蒸馏与微调恢复剪枝后的性能损失，在保持模型能力的前提下实现显著压缩比。</p>
+      <p style="margin-top:8px;"><em>—— 项目详情与配图待补充，请提供项目计划书或技术文档。</em></p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Project 2 -->
+      <div class="card">
+        <span class="card-label gold">国家级一等奖</span>
+        <h3>远程触觉——关键部位材料指纹识别系统</h3>
+        <p>围绕关键部位材料识别问题，构建"材料指纹 + 折射率"双特征识别系统，融合深度学习算法与物理光学模型对材料进行识别与分类。</p>
+        <h4>主要工作</h4>
+        <ul>
+          <li>设计并实现双特征材料识别框架，结合纹理特征与物理光学参数</li>
+          <li>搭建实验平台采集材料数据集，训练CNN-based识别模型</li>
+          <li>模型优化：通过剪枝和量化将参数量压缩至原模型的0.32%</li>
+        </ul>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛应用赛全国一等奖</p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card">
+        <span class="card-label gold">国家级一等奖</span>
+        <h3>偏振慧眼——红外伪装反制与材料识别系统</h3>
+        <p>围绕红外伪装反制场景，设计基于偏振信息驱动的材料识别系统，通过偏振成像、光学神经网络与红外波长可视化技术实现复杂场景下的伪装材料检测。</p>
+        <h4>主要工作</h4>
+        <ul>
+          <li>搭建偏振成像实验光路，采集多角度偏振图像数据</li>
+          <li>设计光学神经网络模块用于偏振特征的提取与分类</li>
+          <li>完成系统集成与实验室环境下的性能验证</li>
+        </ul>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖</p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card">
+        <span class="card-label purple">科研建模</span>
+        <h3>基于 SW-LSTM、BN 与 RL 的肥胖动态预测与干预策略研究</h3>
+        <p>围绕肥胖风险预测与干预问题，构建结合滑动窗口LSTM（SW-LSTM）、批归一化（BN）与强化学习（RL）的综合建模框架，从时间序列分析角度动态刻画肥胖发展趋势并优化干预策略。</p>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：全国大学生统计建模大赛河北赛区本科组二等奖</p>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="card">
+        <span class="card-label green">专利技术</span>
+        <h3>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统</h3>
+        <p>构建融合跨平台用户行为分析、多模态内容检测、传播路径异常识别与动态可信知识子图的多维虚假新闻鉴识方案，实现从单模态检测到跨平台综合研判的技术升级。</p>
+        <h4>主要工作</h4>
+        <ul>
+          <li>设计跨平台行为特征提取模块与传播路径异常检测算法</li>
+          <li>构建动态可信知识子图用于背景知识验证与冲突检测</li>
+          <li>完成多源可信度博弈融合网络设计与可解释溯源报告生成模块</li>
+        </ul>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">成果：申请发明专利 1 项（学生一作）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 论文成果 ===== -->
+<section class="section" id="papers">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Publications</div>
+      <h2>论文成果</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>在投论文</h3>
+        <div style="margin-top:10px;">
+          <div style="padding:8px 0;border-bottom:1px solid #f0ede8;">
+            <strong>High-Rank Structured Modulation for Parameter-Efficient Fine-Tuning</strong>
+            <p style="font-size:13px;color:#7a8a9e;">AAAI Conference on Artificial Intelligence（CCF-A）— 学生二作，在投</p>
+            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">提出 Structured Modulation Adapter（SMoA）方法，在低秩适配框架中引入高秩结构化调制机制，解决传统 LoRA 方法在低秩条件下表达能力受限的问题。</p>
+          </div>
+          <div style="padding:8px 0;">
+            <strong>论文2（标题待补充）</strong>
+            <p style="font-size:13px;color:#7a8a9e;">NeurIPS（CCF-A）— 学生四作，在投</p>
+            <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">论文详情待补充。</p>
+          </div>
+        </div>
+        <div class="fig-card">
+          <img src="images/img_001.jpg" alt="HiRA与LoRA方法对比">
+          <figcaption>Structured Modulation Adapter（SMoA）与 LoRA 方法结构对比示意图</figcaption>
+        </div>
+        <div class="fig-card">
+          <img src="images/img_002.jpg" alt="性能对比">
+          <figcaption>不同参数高效微调方法在常识推理数据集上的准确率对比</figcaption>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>其他研究</h3>
+        <div style="padding:8px 0;border-bottom:1px solid #f0ede8;">
+          <strong>基于 SW-LSTM、BN 与 RL 的肥胖动态预测与干预策略研究</strong>
+          <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">围绕肥胖风险预测与干预问题开展统计建模研究，结合时间序列预测与强化学习优化干预策略。</p>
+        </div>
+        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">—— 此部分内容随论文进展持续更新，待投稿后可提供详细摘要与图表。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专利与软著 ===== -->
+<section class="section" id="patents">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Patents &amp; Software Copyright</div>
+      <h2>专利与软著</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>发明专利（学生一作 · 4项）</h3>
+        <ul style="margin-top:10px;">
+          <li><strong>基于迭代优化机制的相位逐步逼近恢复方法</strong></li>
+          <li><strong>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</strong></li>
+          <li><strong>基于远场衍射建模的微观结构远距离稳定重建方法</strong></li>
+          <li><strong>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统</strong></li>
+        </ul>
+        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">—— 如有新增专利，请提供完整名称以补入列表。</p>
+      </div>
+      <div class="card">
+        <h3>软件著作权</h3>
+        <ul style="margin-top:10px;">
+          <li><strong>基于无人机多角度成像的海冰分类软件 V1.0</strong>（一作）</li>
+        </ul>
+        <p style="font-size:13px;color:#7a8a9e;margin-top:10px;">另有多篇参与软著，持续整理中。</p>
+        <div class="fig-card">
+          <img src="images/img_003.jpg" alt="专利流程图">
+          <figcaption>融合跨平台行为与可信子图的虚假新闻鉴识方法和系统总体流程图</figcaption>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 竞赛奖项 ===== -->
+<section class="section" id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Awards &amp; Honors</div>
+      <h2>竞赛奖项与荣誉</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- 国家级 -->
+      <div class="card">
+        <h3 style="color:#975a16;">🏆 国家级竞赛</h3>
+        <ul style="margin-top:10px;">
+          <li>第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛应用赛 —— 全国一等奖</li>
+          <li>中国（国际）传感器创新创业大赛决赛 —— 全国一等奖</li>
+          <li>中国（国际）传感器创新创业大赛华北赛区 —— 一等奖</li>
+          <li>第十四届光电设计竞赛 —— 全国一等奖</li>
+          <li>第十四届光电设计竞赛华北赛区 —— 一等奖</li>
+          <li>2025年全球校园人工智能算法精英大赛 —— 全国三等奖</li>
+          <li>2026睿抗机器人开发者大赛全国总决赛 —— 应用场景分析赛题</li>
+        </ul>
+      </div>
+
+      <!-- 国际级 -->
+      <div class="card">
+        <h3 style="color:#2c5282;">🌐 国际级竞赛</h3>
+        <ul style="margin-top:10px;">
+          <li>国际大学生数学建模竞赛（MCM/ICM）—— Meritorious Winner（M奖，一等奖）</li>
+          <li>2025年APMCM亚太地区大学生数学建模竞赛 —— 二等奖</li>
+        </ul>
+
+        <h3 style="color:#276749;margin-top:16px;">🏅 省级竞赛</h3>
+        <ul style="margin-top:10px;">
+          <li>全国大学生统计建模大赛河北赛区本科组 —— 二等奖</li>
+          <li>第九届河北省大学生程序设计竞赛 —— 三等奖</li>
+          <li>第十五届蓝桥杯全国软件和信息技术专业人才大赛软件类C++ A组 —— 省级三等奖</li>
+          <li>第七届河北省大学生创新方法大赛</li>
+          <li>2024睿抗机器人开发者大赛 —— 省级三等奖</li>
+          <li>2025睿抗机器人开发者大赛 —— 省级三等奖</li>
+        </ul>
+      </div>
+
+      <!-- 校级荣誉 -->
+      <div class="card">
+        <h3 style="color:#6b46c1;">🎓 校级荣誉</h3>
+        <ul style="margin-top:10px;">
+          <li>2024-2025学年国家励志奖学金</li>
+          <li>东北大学秦皇岛分校 2024年度创新创业奖学金</li>
+          <li>2024-2025学年第一学期校综合三等奖学金</li>
+          <li>2023-2024学年第二学期校综合三等奖学金</li>
+          <li>2024-2025学年优秀学生干部</li>
+          <li>2024年度优秀团干部标兵</li>
+          <li>2024年度优秀团员</li>
+          <li>2024年度优秀志愿者</li>
+          <li>2023-2024学年学生教学信息中心优秀干事</li>
+          <li>第十七届"振东杯"乒乓球赛优秀裁判员</li>
+        </ul>
+      </div>
+
+      <!-- 综合素质 -->
+      <div class="card">
+        <h3 style="color:#4a6fa5;">📝 综合素质</h3>
+        <ul style="margin-top:10px;">
+          <li>计算机与通信工程学院"一二·九"主题征文 —— 一等奖</li>
+          <li>计算机与通信工程学院"勿忘国耻，圆梦中华"主题征文比赛 —— 一等奖</li>
+          <li>计算机与通信工程学院"新生艺术展"视频组 —— 二等奖</li>
+          <li>第二十一届全国高等院校数智化企业沙盘大赛校赛 —— 三等奖</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 学生工作 ===== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Leadership &amp; Service</div>
+      <h2>学生工作经历</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>起步积累</h4>
+          <p>加入东北大学秦皇岛分校学生教学信息中心，担任干事；在征文、视频创作等校园活动中获得多个一等奖和二等奖，积累了表达与组织经验。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>竞赛突破</h4>
+          <p>获评优秀干事、优秀志愿者、优秀裁判员；在程序设计、数学建模、机器人开发等竞赛中持续参与并获奖；获创新创业奖学金和综合三等奖学金。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024–2025</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>管理成长</h4>
+          <p>在学生教学信息中心先后担任副主任、主任（负责人），负责团队协调与日常事务管理，获评优秀学生干部、优秀团干部标兵、优秀团员。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025–2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>科研产出</h4>
+          <p>作为核心成员获得"挑战杯"全国一等奖、传感器创新创业大赛全国一等奖、光电设计竞赛全国一等奖；完成4项发明专利申请和论文投稿；获得国家励志奖学金。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 证书墙 ===== -->
+<section class="section" id="certs">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Certificates</div>
+      <h2>证书墙</h2>
+      <p class="section-subtitle">点击证书可查看大图</p>
+    </div>
+
+    <div class="cert-filters">
+      <button class="cert-filter-btn active" data-filter="all">全部</button>
+      <button class="cert-filter-btn" data-filter="national">国家级</button>
+      <button class="cert-filter-btn" data-filter="international">国际级</button>
+      <button class="cert-filter-btn" data-filter="provincial">省级</button>
+      <button class="cert-filter-btn" data-filter="school">校级荣誉</button>
+      <button class="cert-filter-btn" data-filter="work">学生工作</button>
+      <button class="cert-filter-btn" data-filter="other">综合素质</button>
+    </div>
+
+    <div class="cert-grid" id="certGrid">
+
+      <!-- 国家级 -->
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/img_004.jpg" alt="挑战杯国家一等奖"></div>
+        <div class="cert-body">
+          <h4>"挑战杯"全国一等奖</h4>
+          <p>第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛应用赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/img_005.jpg" alt="传感器大赛决赛一等奖"></div>
+        <div class="cert-body">
+          <h4>传感器创新创业大赛全国一等奖</h4>
+          <p>中国（国际）传感器创新创业大赛决赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/img_006.jpg" alt="传感器大赛华北赛区一等奖"></div>
+        <div class="cert-body">
+          <h4>传感器创新创业大赛华北赛区一等奖</h4>
+          <p>中国（国际）传感器创新创业大赛华北赛区</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/img_007.jpg" alt="算法精英大赛国家三等奖"></div>
+        <div class="cert-body">
+          <h4>全球校园人工智能算法精英大赛全国三等奖</h4>
+          <p>2025年AIC算法巅峰赛第二赛季</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/cert_optics_national.jpg" alt="光电设计竞赛全国一等奖"></div>
+        <div class="cert-body">
+          <h4>光电设计竞赛全国一等奖</h4>
+          <p>第十四届光电设计竞赛全国一等奖</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="national">
+        <div class="cert-img-wrap"><img src="images/cert_optics_north1.jpg" alt="光电设计竞赛华北赛区一等奖"></div>
+        <div class="cert-body">
+          <h4>光电设计竞赛华北赛区一等奖</h4>
+          <p>第十四届光电设计竞赛华北赛区一等奖</p>
+        </div>
+      </article>
+
+      <!-- 国际级 -->
+      <article class="cert-card" data-cat="international">
+        <div class="cert-img-wrap"><img src="images/cert_mcm_m.jpg" alt="国际大学生数学建模竞赛M奖"></div>
+        <div class="cert-body">
+          <h4>国际大学生数学建模竞赛 M奖</h4>
+          <p>MCM/ICM Meritorious Winner（一等奖）</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="international">
+        <div class="cert-img-wrap"><img src="images/img_009.jpg" alt="APMCM数学建模二等奖"></div>
+        <div class="cert-body">
+          <h4>APMCM亚太地区大学生数学建模竞赛二等奖</h4>
+          <p>2025年APMCM亚太地区大学生数学建模竞赛</p>
+        </div>
+      </article>
+
+      <!-- 省级 -->
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap"><img src="images/img_008.jpg" alt="统计建模赛区二等奖"></div>
+        <div class="cert-body">
+          <h4>统计建模大赛赛区二等奖</h4>
+          <p>全国大学生统计建模大赛河北赛区本科组二等奖</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap"><img src="images/img_010.jpg" alt="河北省大学生程序设计竞赛三等奖"></div>
+        <div class="cert-body">
+          <h4>河北省大学生程序设计竞赛三等奖</h4>
+          <p>第九届河北省大学生程序设计竞赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap"><img src="images/cert_lanqiao.jpg" alt="蓝桥杯C++ A组省级三等奖"></div>
+        <div class="cert-body">
+          <h4>蓝桥杯C++ A组省级三等奖</h4>
+          <p>第十五届蓝桥杯全国软件和信息技术专业人才大赛软件类C++ A组</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap"><img src="images/cert_raicom2024.jpg" alt="2024睿抗机器人开发者大赛省级三等奖"></div>
+        <div class="cert-body">
+          <h4>2024睿抗机器人开发者大赛省级三等奖</h4>
+          <p>2024睿抗机器人开发者大赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap"><img src="images/cert_raicom2025.jpg" alt="2025睿抗机器人开发者大赛省级三等奖"></div>
+        <div class="cert-body">
+          <h4>2025睿抗机器人开发者大赛省级三等奖</h4>
+          <p>2025睿抗机器人开发者大赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="provincial">
+        <div class="cert-img-wrap" style="background:#f0faf4;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:13px;color:#276749;">🤖 2026睿抗机器人开发者大赛全国总决赛</span>
+        </div>
+        <div class="cert-body">
+          <h4>2026睿抗机器人开发者大赛全国总决赛</h4>
+          <p>2026睿抗机器人开发者大赛全国总决赛第一阶段</p>
+        </div>
+      </article>
+
+      <!-- 校级荣誉 -->
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/img_011.jpg" alt="创新创业奖学金"></div>
+        <div class="cert-body">
+          <h4>创新创业奖学金</h4>
+          <p>东北大学秦皇岛分校 2024年度创新创业奖学金</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/img_012.jpg" alt="三等奖学金"></div>
+        <div class="cert-body">
+          <h4>综合三等奖学金</h4>
+          <p>2024-2025学年第一学期校综合三等奖学金</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/img_013.jpg" alt="三等奖学金"></div>
+        <div class="cert-body">
+          <h4>综合三等奖学金</h4>
+          <p>2023-2024学年第二学期校综合三等奖学金</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/img_014.jpg" alt="优秀学生干部"></div>
+        <div class="cert-body">
+          <h4>优秀学生干部</h4>
+          <p>2024-2025学年优秀学生干部</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/img_015.jpg" alt="优秀团员"></div>
+        <div class="cert-body">
+          <h4>优秀团员</h4>
+          <p>2024年度优秀团员</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/cert_tuan_ganbu.jpg" alt="优秀团干部标兵"></div>
+        <div class="cert-body">
+          <h4>优秀团干部标兵</h4>
+          <p>2024年度优秀团干部标兵</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="school">
+        <div class="cert-img-wrap"><img src="images/cert_lizhi.jpg" alt="国家励志奖学金"></div>
+        <div class="cert-body">
+          <h4>国家励志奖学金</h4>
+          <p>2024-2025学年国家励志奖学金</p>
+        </div>
+      </article>
+
+      <!-- 学生工作 -->
+      <article class="cert-card" data-cat="work">
+        <div class="cert-img-wrap"><img src="images/img_016.jpg" alt="教学信息中心副主任"></div>
+        <div class="cert-body">
+          <h4>学生教学信息中心副主任聘书</h4>
+          <p>东北大学秦皇岛分校学生教学信息中心副主任</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="work">
+        <div class="cert-img-wrap"><img src="images/img_017.jpg" alt="教学信息中心干事"></div>
+        <div class="cert-body">
+          <h4>学生教学信息中心干事聘书</h4>
+          <p>东北大学秦皇岛分校学生教学信息中心干事</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="work">
+        <div class="cert-img-wrap"><img src="images/img_018.jpg" alt="优秀干事"></div>
+        <div class="cert-body">
+          <h4>优秀干事</h4>
+          <p>2023-2024学年学生教学信息中心优秀干事</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="work">
+        <div class="cert-img-wrap"><img src="images/img_025.jpg" alt="教学信息中心主任"></div>
+        <div class="cert-body">
+          <h4>学生教学信息中心主任聘书（负责人）</h4>
+          <p>东北大学秦皇岛分校学生教学信息中心主任</p>
+        </div>
+      </article>
+
+      <!-- 综合素质 -->
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_019.jpg" alt="新生艺术展视频组二等奖"></div>
+        <div class="cert-body">
+          <h4>新生艺术展视频组二等奖</h4>
+          <p>计算机与通信工程学院"新生艺术展"视频组</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_020.jpg" alt="一二九主题征文一等奖"></div>
+        <div class="cert-body">
+          <h4>"一二·九"主题征文一等奖</h4>
+          <p>计算机与通信工程学院主题征文比赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_021.jpg" alt="勿忘国耻圆梦中华主题征文一等奖"></div>
+        <div class="cert-body">
+          <h4>"勿忘国耻，圆梦中华"主题征文一等奖</h4>
+          <p>计算机与通信工程学院主题征文比赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_022.jpg" alt="数智化企业沙盘大赛校赛三等奖"></div>
+        <div class="cert-body">
+          <h4>数智化企业沙盘大赛校赛三等奖</h4>
+          <p>第二十一届全国高等院校数智化企业沙盘大赛校赛</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_023.jpg" alt="优秀志愿者"></div>
+        <div class="cert-body">
+          <h4>优秀志愿者</h4>
+          <p>"小浪花"大学生体育志愿服务活动</p>
+        </div>
+      </article>
+
+      <article class="cert-card" data-cat="other">
+        <div class="cert-img-wrap"><img src="images/img_024.jpg" alt="优秀裁判员"></div>
+        <div class="cert-body">
+          <h4>优秀裁判员</h4>
+          <p>第十七届"振东杯"乒乓球赛优秀裁判员</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <div class="footer-qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://aaaaafdd.github.io" alt="扫码查看主页">
+    </div>
+    <p style="font-size:13px;color:#7a8a9e;">扫描二维码或访问 <a href="https://aaaaafdd.github.io">aaaaafdd.github.io</a></p>
+    <p style="font-size:12px;color:#b0bcc8;">&copy; 2026 张善茹 · 更新于2026年7月</p>
+  </div>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="imgModal">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div class="modal-title" id="modalTitle">证书预览</div>
+      <button class="modal-close" id="modalClose">关闭</button>
+    </div>
+    <img id="modalImg" src="" alt="">
+  </div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Certificate filter
+(function(){
+  const btns = document.querySelectorAll('.cert-filter-btn');
+  const cards = document.querySelectorAll('.cert-card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Modal
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalClose = document.getElementById('modalClose');
+
+  document.getElementById('certGrid').addEventListener('click', (e) => {
+    const img = e.target.closest('.cert-card')?.querySelector('img');
+    const title = e.target.closest('.cert-card')?.querySelector('h4')?.textContent;
+    if (img && img.src) {
+      modalImg.src = img.src;
+      modalTitle.textContent = title || '证书预览';
+      modal.classList.add('open');
+    }
+  });
+
+  modalClose.addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal.classList.remove('open');
+  });
+})();
+</script>
+
+</body>
+</html>
