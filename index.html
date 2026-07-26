@@ -107,7 +107,7 @@ ul { list-style: none; }
 /* ===== Stats Row ===== */
 .stats-row {
   max-width: 1100px; margin: 0 auto 20px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
 }
 .stat-box {
   background: #fff; border: 1px solid #e8e4dd;
@@ -325,7 +325,7 @@ ul { list-style: none; }
   .grid-2, .edu-grid { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(3, 1fr); }
   .timeline::before { left: 60px; }
   .timeline-year { width: 60px; font-size: 13px; }
   .timeline-dot { left: 54px; }
@@ -400,6 +400,10 @@ ul { list-style: none; }
     <div class="stat-box">
       <div class="stat-num">4 项</div>
       <div class="stat-label">发明专利（学生一作）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">24+</div>
+      <div class="stat-label">荣誉称号</div>
     </div>
   </div>
 </div>
@@ -556,10 +560,10 @@ ul { list-style: none; }
       </div>
 
       <div class="card">
-        <h3>竞赛论文</h3>
-        <div style="padding:8px 0;">
-          <strong>基于 SW-LSTM、BN 与 RL 的肥胖动态预测与干预策略研究</strong>
-          <p style="font-size:14px;color:#5a6c7d;margin-top:4px;">全国大学生统计建模大赛河北赛区本科组二等奖的参赛论文，结合滑动窗口 LSTM、批归一化与强化学习构建肥胖预测模型。</p>
+        <h3>论文配图</h3>
+        <div class="fig-card">
+          <img src="images/ngo_bc_figure.png" alt="NGO-BC架构图">
+          <figcaption>NGO-BC 双层架构：轮内 MPC + 轮间 MWU 全局调度</figcaption>
         </div>
       </div>
     </div>
