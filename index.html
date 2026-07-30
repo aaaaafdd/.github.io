@@ -362,19 +362,21 @@ ul { list-style: none; }
   <div class="hero-grid">
     <img class="hero-portrait" src="images/img_000.jpg" alt="张善茹">
     <div class="hero-text">
-      <div class="hero-badge">保研预推免 · 个人学术主页</div>
+      <div class="hero-badge">个人学术主页</div>
       <h1>张善茹</h1>
       <div class="hero-school">
         东北大学（秦皇岛分校）<span>985</span> 计算机科学与技术 <span>双一流</span>
       </div>
       <p class="hero-desc">
-        2023级本科生，研究方向为大模型压缩、计算机视觉、智能感知。已获得国家级奖项6项（其中全国一等奖5项）、省部级奖项9项，以学生一作申请发明专利4项，在投论文2篇（AAAI二作、NeurIPS四作）。
+        2023级本科生，研究方向为大模型压缩、参数高效微调、光信息流网络、MAS系统预算控制、计算机视觉、智能感知。已获得国家级奖项6项（其中全国一等奖5项）、省部级奖项9项，其中多项为教育部A类学科竞赛等高水平赛事。以第一作者身份发表发明专利4项及多项软件著作权，有2篇CCF-A类论文在投。
       </p>
       <div class="hero-tags">
         <span class="hero-tag">大模型压缩</span>
         <span class="hero-tag">计算机视觉</span>
         <span class="hero-tag">智能感知</span>
-        <span class="hero-tag">多模态学习</span>
+        <span class="hero-tag">参数高效微调</span>
+	        <span class="hero-tag">光信息流网络</span>
+	        <span class="hero-tag">MAS系统预算控制</span>
         <span class="hero-tag">CET-4 / CET-6</span>
         <span class="hero-tag">普通话二级甲等</span>
       </div>
@@ -399,7 +401,7 @@ ul { list-style: none; }
     </div>
     <div class="stat-box">
       <div class="stat-num">4 项</div>
-      <div class="stat-label">发明专利（学生一作）</div>
+      <div class="stat-label">发明专利（第一作者）</div>
     </div>
     <div class="stat-box">
       <div class="stat-num">24+</div>
@@ -450,20 +452,21 @@ ul { list-style: none; }
     <div class="section-head">
       <div class="section-eyebrow">Research Projects</div>
       <h2>科研项目</h2>
-      <p class="section-subtitle">涵盖大模型压缩、材料识别、红外感知、健康预测、虚假信息检测等方向</p>
+      <p class="section-subtitle">涵盖大模型压缩、材料鉴别、光学神经网络、虚假信息检测等方向</p>
     </div>
 
     <!-- Project 1: LLM pruning -->
     <div class="card" style="margin-bottom:18px;">
       <span class="card-label blue">科研项目</span>
-      <h3>基于结构化剪枝的大语言模型压缩与性能优化研究（GradPruner）</h3>
-      <p>围绕大模型部署的推理延迟与显存瓶颈，复现并改进了 GradPruner 梯度引导层剪枝方法：利用 LoRA 微调前 40 步的梯度信息计算每层 IGIA 重要性分数，剪除分数最低的约 40% 层数，并通过符号合并将被剪层的知识抢救到保留层中。在 Llama3.1-8B 上的 8 个下游任务中，参数减少 40% 的同时精度仅下降不到 1%，推理速度提升约 39%。</p>
+      <h3>基于结构化剪枝的大语言模型压缩与性能优化研究</h3>
+      <p>围绕大模型部署的推理延迟与显存瓶颈，提出梯度引导层剪枝方法：利用 LoRA 微调前 40 步的梯度信息计算每层 IGIA 重要性分数，剪除分数最低的约 40% 层数，并通过符号合并将被剪层的知识抢救到保留层中。在 Llama3.1-8B 上的 8 个下游任务中，参数减少 40% 的同时精度仅下降不到 1%，推理速度提升约 39%。</p>
       <h4>主要工作</h4>
       <ul>
         <li>修改 HuggingFace Trainer 训练循环，在梯度计算后、优化器更新前插入梯度保存逻辑</li>
         <li>实现 IGIA 层重要性打分：用 LoRA_A 和 LoRA_B 的梯度矩阵乘积范数作为每层重要性度量，累加 40 步得到时间平均分数</li>
         <li>实现符号合并剪枝：只在前 20% 重要参数且与被剪层同号时才合并，避免参数干扰</li>
-        <li>提出两个改进方向：Soft-GradPruner（Fisher 信息矩阵加权融合）和 Dynamic-GradPruner（结合 MoD 的动态路由）</li>
+        <li>在层剪枝的基础上，进一步对 MLP 中间层进行结构化剪枝实验，探索不同模块对剪枝敏感性的差异</li>
+	        <li>验证 Soft-GradPruner（Fisher 信息矩阵加权融合）、融合平均等层合并方式的不可行性，得出"减少干扰比平滑权重更重要，一个清晰的、哪怕不完整的信号，比一个模糊的、被稀释的信号更好"的重要结论</li>
       </ul>
     </div>
 
@@ -471,13 +474,13 @@ ul { list-style: none; }
       <!-- Project 2 -->
       <div class="card">
         <span class="card-label gold">国家级一等奖</span>
-        <h3>远程触觉——关键部位材料指纹识别系统</h3>
-        <p>围绕关键部位材料识别问题，构建"材料指纹 + 折射率"双特征识别系统，融合深度学习算法与物理光学模型对材料进行识别与分类。</p>
+        <h3>远程触觉——关重部位材料指纹识别系统</h3>
+        <p>围绕关重部位材料鉴别问题，构建"材料指纹 + 折射率"双特征识别系统，融合深度学习算法与物理光学模型对材料进行识别与分类。</p>
         <h4>主要工作</h4>
         <ul>
-          <li>设计并实现双特征材料识别框架，结合纹理特征与物理光学参数</li>
-          <li>搭建实验平台采集材料数据集，训练CNN-based识别模型</li>
-          <li>模型优化：通过剪枝和量化将参数量压缩至原模型的0.32%</li>
+          <li>设计并实现双特征材料鉴别框架，结合纹理特征与物理光学参数</li>
+          <li>搭建实验平台采集光强-折射率数据集</li>
+          <li>将菲涅尔公式直接嵌入网络中，提出折射率导向模型</li>
         </ul>
         <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛应用赛全国一等奖</p>
       </div>
@@ -485,20 +488,20 @@ ul { list-style: none; }
       <!-- Project 3 -->
       <div class="card">
         <span class="card-label gold">国家级一等奖</span>
-        <h3>偏振慧眼——红外伪装反制与材料识别系统</h3>
-        <p>围绕红外伪装反制场景，设计基于偏振信息驱动的材料识别系统，通过偏振成像、光学神经网络与红外波长可视化技术实现复杂场景下的伪装材料检测。</p>
+        <h3>偏振慧眼——红外伪装反制与材料鉴别系统</h3>
+        <p>围绕红外伪装反制场景，设计基于偏振信息驱动的材料鉴别系统，通过偏振成像与光学神经网络实现复杂场景下的伪装材料检测。所设计的光学神经网络可直接替代硬件偏振片生成偏振图像，避免了传统方案需加装偏振片所带来的光强损耗、光路改造及高昂硬件成本等痛点。</p>
         <h4>主要工作</h4>
         <ul>
           <li>搭建偏振成像实验光路，采集多角度偏振图像数据</li>
           <li>设计光学神经网络模块用于偏振特征的提取与分类</li>
-          <li>完成系统集成与实验室环境下的性能验证</li>
+          <li>完成系统集成与性能验证</li>
         </ul>
-        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖</p>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">获奖：光电设计竞赛全国冠军、睿抗机器人开发者大赛全国一等奖、中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖</p>
       </div>
 
       <!-- NGO-BC Budget Control -->
       <div class="card">
-        <span class="card-label blue">在投论文项目（NeurIPS 2026）</span>
+        <span class="card-label blue">在投论文项目（AAAI 2026 CCF-A）</span>
         <h3>NGO-BC：神经引导的大模型多智能体在线预算控制</h3>
         <p>围绕大模型多智能体系统（MAS）的 API 成本爆炸问题，设计了一个即插即用的预算控制器，仅通过控制每个 Agent 的 max_tokens 参数实现非侵入式成本优化，完全不改变系统内部逻辑。</p>
         <h4>主要工作</h4>
@@ -509,6 +512,21 @@ ul { list-style: none; }
           <li>在 MATH/MMLU-Pro/GPQA 三个基准 × 四种协作框架 × 四个预算水平下验证，紧预算场景准确率优势 10-20pp，实现零预算违规</li>
         </ul>
         <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">投稿：AAAI（CCF-A）</p>
+      </div>
+
+      <!-- SMoA PEFT -->
+      <div class="card">
+        <span class="card-label blue">在投论文项目（NeurIPS 2026 CCF-A）</span>
+        <h3>SMoA：频谱调制适配器——面向参数高效微调的高秩结构化调制</h3>
+        <p>围绕大模型参数高效微调中低秩适配表达能力受限的问题，提出 Structured Modulation Adapter（SMoA），通过 SVD 重排序与分块 Hadamard 调制，在低秩适配框架中引入高秩结构化调制机制。核心洞察是预训练权重尾部方向包含有用信息，通过频谱重排让低秩适配也能利用这些信息。</p>
+        <h4>主要工作</h4>
+        <ul>
+          <li>分析传统 LoRA 方法低秩瓶颈的理论根源，揭示预训练权重尾部方向的信息利用价值</li>
+          <li>设计 SVD 重排序机制，将权重矩阵按奇异值大小重新排列，使重要方向集中于低秩空间</li>
+          <li>提出分块 Hadamard 调制策略，在低秩空间内引入结构化高秩扰动以增强模型表达能力</li>
+          <li>在多个常识推理基准上验证 SMoA 相比 LoRA 等主流 PEFT 方法的性能优势</li>
+        </ul>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">投稿：NeurIPS 2026（CCF-A）— 四作，在投</p>
       </div>
 
       <!-- Project 5 -->
@@ -522,7 +540,7 @@ ul { list-style: none; }
           <li>构建动态可信知识子图用于背景知识验证与冲突检测</li>
           <li>完成多源可信度博弈融合网络设计与可解释溯源报告生成模块</li>
         </ul>
-        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">成果：申请发明专利 1 项（学生一作）</p>
+        <p style="margin-top:8px;font-size:13px;color:#7a8a9e;">成果：申请发明专利 1 项（第一作者）</p>
       </div>
     </div>
   </div>
@@ -573,7 +591,7 @@ ul { list-style: none; }
     </div>
     <div class="grid-2">
     <div class="card" style="margin-bottom:16px;">
-        <h3>发明专利（学生一作 · 4项）</h3>
+        <h3>发明专利（第一作者 · 4项）</h3>
         <ul style="margin-top:10px;">
           <li><strong>基于迭代优化机制的相位逐步逼近恢复方法</strong></li>
           <li><strong>基于傅里叶反变换与迭代相位恢复的被模糊微结构边缘精准还原方法</strong></li>
@@ -652,10 +670,10 @@ ul { list-style: none; }
 
         <h3 style="color:#276749;margin-top:16px;">🏅 省级竞赛</h3>
         <ul style="margin-top:10px;">
+          <li>第七届河北省大学生创新方法大赛 —— 省级一等奖</li>
           <li>全国大学生统计建模大赛河北赛区本科组 —— 二等奖</li>
           <li>第九届河北省大学生程序设计竞赛 —— 三等奖</li>
           <li>第十五届蓝桥杯全国软件和信息技术专业人才大赛软件类C++ A组 —— 省级三等奖</li>
-          <li>第七届河北省大学生创新方法大赛</li>
           <li>2024睿抗机器人开发者大赛 —— 省级三等奖</li>
           <li>2025睿抗机器人开发者大赛 —— 省级三等奖</li>
         </ul>
@@ -667,6 +685,7 @@ ul { list-style: none; }
         <ul style="margin-top:10px;">
           <li>2024-2025学年国家励志奖学金</li>
           <li>东北大学秦皇岛分校 2024年度创新创业奖学金</li>
+          <li>东北大学秦皇岛分校 2025年度创新创业奖学金</li>
           <li>2024-2025学年第一学期校综合三等奖学金</li>
           <li>2023-2024学年第二学期校综合三等奖学金</li>
           <li>2024-2025学年优秀学生干部</li>
@@ -706,7 +725,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>入学适应 · 崭露头角</h4>
-          <p>8月进入东北大学（秦皇岛分校）计算机科学与技术专业。10月加入校学生教学信息中心担任干事。11月获新生艺术展视频组二等奖。12月获"一二·九"主题征文一等奖、"勿忘国耻，圆梦中华"主题征文一等奖、数智化企业沙盘大赛校赛三等奖。大一上学期即展现出较强的文字表达与活动组织能力。</p>
+          <p>8月进入东北大学（秦皇岛分校）计算机科学与技术专业。10月加入校学生教学信息中心担任干事。11月获新生艺术展视频组二等奖。12月获"一二·九"主题征文一等奖、"勿忘国耻，圆梦中华"主题征文一等奖。大一上学期即展现出较强的文字表达与活动组织能力。</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -722,7 +741,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>进入科研 · 项目启航</h4>
-          <p>暑假开始系统学习深度学习与PyTorch。10月作为核心成员加入国家级大学生创新训练项目"远程触觉——基于AI光学的材料指纹识别系统"，负责偏振光学神经网络的设计与实验。同期完成CET-6（428分）。12月获评创新创业奖学金、优秀团员，综合三等奖学金。</p>
+          <p>暑假开始系统学习深度学习与PyTorch。10月作为核心成员加入国家级大学生创新训练项目"远程触觉——基于AI光学的材料指纹识别系统"，负责偏振光学神经网络的设计与实验。同期完成CET-6（428分）。11月获数智化企业沙盘大赛校赛三等奖。12月获评创新创业奖学金、优秀团员，综合三等奖学金。</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -738,7 +757,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>成果爆发 · 国赛丰收</h4>
-          <p>"远程触觉"项目获第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛全国一等奖。"偏振慧眼"项目获中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖。10月牵头省级大创项目"融合跨平台行为与可信子图的虚假新闻鉴识系统"。担任学生教学信息中心主任（负责人）。12月获国家励志奖学金、优秀团干部标兵。完成4项发明专利申请的撰写与提交。</p>
+          <p>"远程触觉"项目获第十九届"挑战杯"全国大学生课外学术科技作品竞赛"人工智能+"专项赛全国一等奖。"偏振慧眼"项目获中国（国际）传感器创新创业大赛全国决赛一等奖、华北赛区一等奖。10月牵头省级大创项目"融合跨平台行为与可信子图的虚假新闻鉴识系统"。担任学生教学信息中心主任（负责人）。10月获全球校园人工智能算法精英大赛全国三等奖。12月获国家励志奖学金、优秀团干部标兵。完成4项发明专利申请的撰写与提交。</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -746,7 +765,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>论文冲刺 · 顶会在投</h4>
-          <p>作为核心贡献者参与NGO-BC多智能体预算控制项目（算法设计、代码实现、实验），以二作身份投稿AAAI（CCF-A）。参与SMoA参数高效微调研究，以四作身份投稿NeurIPS 2026（CCF-A）。完成GradPruner梯度引导层剪枝方法的完整复现与改进。获第十四届光电设计竞赛华北赛区一等奖。</p>
+          <p>作为核心贡献者参与NGO-BC多智能体预算控制项目（算法设计、代码实现、实验），以二作身份投稿AAAI（CCF-A）。参与SMoA参数高效微调研究，以四作身份投稿NeurIPS 2026（CCF-A）。完成梯度引导层剪枝方法的完整实验验证与分析。获第十四届光电设计竞赛华北赛区一等奖。</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -754,7 +773,7 @@ ul { list-style: none; }
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <h4>收官冲刺 · 预推免备战</h4>
-          <p>获第十四届光电设计竞赛全国一等奖、2026睿抗机器人开发者大赛全国总决赛一等奖、2025年全球校园人工智能算法精英大赛全国三等奖。软著"基于无人机多角度成像的海冰分类软件V1.0"获批。截至目前，累计获得国家级奖项6项（全国一等奖5项）、省部级奖项9项、发明专利4项、软著1项、在投CCF-A论文2篇。</p>
+          <p>获第十四届光电设计竞赛全国一等奖、2026睿抗机器人开发者大赛全国总决赛一等奖。软著"基于无人机多角度成像的海冰分类软件V1.0"获批。截至目前，累计获得国家级奖项6项（全国一等奖5项）、省部级奖项9项、发明专利4项、软著1项、在投CCF-A论文2篇。</p>
         </div>
       </div>
     </div>
@@ -792,7 +811,7 @@ ul { list-style: none; }
       </article>
 
       <article class="cert-card" data-cat="national">
-        <div class="cert-img-wrap"><img src="images/img_005.jpg" alt="传感器大赛决赛一等奖"></div>
+        <div class="cert-img-wrap"><img src="images/cert_sensor_national.jpg" alt="传感器大赛决赛一等奖"></div>
         <div class="cert-body">
           <h4>传感器创新创业大赛全国一等奖</h4>
           <p>中国（国际）传感器创新创业大赛决赛</p>
